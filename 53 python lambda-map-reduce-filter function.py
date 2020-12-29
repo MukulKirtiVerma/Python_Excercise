@@ -5,9 +5,6 @@ Created on Tue Dec 29 15:18:56 2020
 @author: MUKUL
 """
 
-x = lambda x: sys.stdout.write("\n".join(x) + "\n")
-x('hello')
-#d 10 to argument a, and return the result:
 
     
 
@@ -33,7 +30,7 @@ print(x(5, 6, 2))
 def myfunc(n):
   return lambda a : a * n
 
-mydoubler = myfunc(2)
+mydoubler = myfunc(3)
 
 print(mydoubler(11))
 
@@ -55,12 +52,10 @@ mytripler = myfunc(3)
 print(mydoubler(11))
 print(mytripler(11))
 
-
-
-
-
-
-
+def fun (x):
+    return x*x
+l=[1,2,3]
+print(list(map(fun,l)))
 
 map(fun, iter)
 
@@ -78,13 +73,18 @@ print(list(result))
 numbers1 = [1, 2, 3] 
 numbers2 = [4, 5, 6] 
 number3  = [7, 8, 9]
-result = map(lambda x, y, z: x + y + z, numbers1, numbers2, number3) 
+result = map(lambda x, \
+             y, z: x + y + z,\
+             numbers1, \
+             numbers2,\
+             number3) 
 print(list(result))
 
 
   
 numbers = (1, 2, 3, 4) 
-result = map(lambda x: x + x, numbers) 
+result = map(lambda x: x + x, \
+             numbers) 
 print(list(result)) 
 
 
@@ -100,6 +100,11 @@ reduce() in Python
 
 reduce() in Python
 
+def fun (x):
+    return x
+l=[1,2,3,4,5]
+
+
 
 
 import functools 
@@ -109,15 +114,44 @@ lis = [ 1 , 3, 5, 6, 2, ]
   
 # using reduce to compute sum of list 
 print ("The sum of the list elements is : ",end="") 
-print (functools.reduce(lambda a,b : a+b,lis)) 
+print (functools.reduce(lambda\
+                        a,b : \
+                        a+b,\
+                        lis)) 
   
 # using reduce to compute maximum element from list 
 print ("The maximum element of the list is : ",end="") 
-print (functools.reduce(lambda a,b : a if a > b else b,lis)) 
+print (functools.reduce(\
+ lambda a,b : a if a > b else b,lis)) 
+count=[0]
+print (functools.reduce(\
+ lambda a,b : count.(count[0]+1) if b % 2!=0 else count,lis)) 
 
+def fun(x,y):
+    if(y%2!=0):
+        count[0]=count[0]+1
+        return count
+    else:
+        return count
+functools.reduce(\
+            lambda x,y\
+            :x+1 \
+            if y%2!=0 \
+            else x, [0]+lis)
+print(count[0])
 
+lis=[0]
+def fun(x,y):
+    print(x,y)
+    if(y%2!=0):
+        return x+1
+    else:
+        return x
+lis=[9,2,1,3,5,7,9,8]
+functools.reduce(fun, [0]+lis)
 
-
+    
+g=
 import functools 
   
 # importing operator for operator functions 
@@ -129,7 +163,8 @@ lis = [ 1 , 3, 5, 6, 2, ]
 # using reduce to compute sum of list 
 # using operator functions 
 print ("The sum of the list elements is : ",end="") 
-print (functools.reduce(operator.add,lis)) 
+print (functools.reduce(\
+        operator.add,lis)) 
   
 # using reduce to compute product 
 # using operator functions 
@@ -146,7 +181,7 @@ import itertools
   
 # importing functools for reduce() 
 import functools 
-  
+i
 # initializing list  
 lis = [ 1, 3, 4, 10, 4 ] 
   
@@ -169,23 +204,24 @@ sequence to be true or not.
 
 
 def fun(variable): 
-    letters = ['a', 'e', 'i', 'o', 'u'] 
-    if (variable in letters): 
+  letters = ['a', 'e',\
+             'i', 'o', 'u'] 
+  if (variable in letters): 
         return True
-    else: 
+  else: 
         return False
-  
-  
 # sequence 
-sequence = ['g', 'e', 'e', 'j', 'k', 's', 'p', 'r'] 
-  
+sequence = ['g', 'e', \
+            'e', 'j', \
+            'k', 's', \
+            'p', 'r'] 
 # using filter function 
 filtered = filter(fun, sequence) 
   
 print('The filtered letters are:') 
-for s in filtered: 
-    print(s) 
-    
+list(filtered)
+
+
     
     
     
@@ -199,6 +235,11 @@ print(list(result))
 result = filter(lambda x: x % 2 == 0, seq) 
 print(list(result)) 
 
+
+
+
+str1="1010101111010101111"
+print(''.join(list(filter(lambda x: x=='0', str1))))
 
 
 
